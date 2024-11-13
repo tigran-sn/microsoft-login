@@ -1,0 +1,68 @@
+.profile {
+  padding: 20px;
+  margin: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  p {
+    margin: 12px 0;
+    padding: 8px;
+    border-bottom: 1px solid #e9ecef;
+    display: flex;
+    align-items: baseline;
+
+    &:last-child {
+      border-bottom: none;
+      font-size: 0.9em;
+      color: #6c757d;
+      font-style: italic;
+    }
+
+    strong {
+      min-width: 180px;
+      color: #495057;
+      margin-right: 10px;
+    }
+
+    // Only show "Not provided" when the actual value is empty or null
+    &:not(:last-child) {
+      &:has(strong:not(:empty) + :empty),
+      &:has(strong:not(:empty) + :-moz-only-whitespace) {
+        &::after {
+          content: "Not provided";
+          font-style: italic;
+          color: #adb5bd;
+        }
+      }
+    }
+  }
+
+  br + br + p {
+    margin-top: 20px;
+  }
+}
+
+// For multiple profiles, add some spacing
+.profile + .profile {
+  margin-top: 30px;
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .profile {
+    padding: 15px;
+    margin: 15px;
+
+    p {
+      flex-direction: column;
+
+      strong {
+        min-width: auto;
+        margin-bottom: 4px;
+      }
+    }
+  }
+}
