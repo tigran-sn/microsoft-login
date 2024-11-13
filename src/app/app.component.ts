@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, Inject, OnDestroy, OnInit } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import { MSAL_GUARD_CONFIG, MsalBroadcastService, MsalGuardConfiguration, MsalModule, MsalService } from '@azure/msal-angular';
 import { AuthenticationResult, EventMessage, EventType, InteractionStatus, PopupRequest, RedirectRequest } from '@azure/msal-browser';
 import { catchError, EMPTY, filter, Subject, takeUntil, throwError } from 'rxjs';
@@ -13,12 +13,13 @@ import { catchError, EMPTY, filter, Subject, takeUntil, throwError } from 'rxjs'
     MsalModule,
     RouterOutlet,
     RouterLink,
+    RouterLinkActive
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit, OnDestroy {
-  title = 'microsoft-login';
+  title = 'Microsoft Login';
   isIframe = false;
   loginDisplay = false;
   tokenExpiration: string = '';

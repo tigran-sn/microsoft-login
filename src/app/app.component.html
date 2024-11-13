@@ -1,9 +1,12 @@
 <header class="header">
   <a class="title" [routerLink]="['/']">{{ title }}</a>
 
-  <nav class="navigation">
-    <a class="nav-link" [routerLink]="['profile']">Profile</a>
-  </nav>
+  @if(loginDisplay) {
+    <nav class="navigation">
+      <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="nav-link">Home</a>
+      <a [routerLink]="['profile']" routerLinkActive="active" class="nav-link">Profile</a>
+    </nav>
+  }
 
   <div class="auth-buttons">
     @if (!loginDisplay) {
