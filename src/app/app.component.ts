@@ -144,8 +144,8 @@ export class AppComponent implements OnInit, OnDestroy {
   logout(popup?: boolean) {
     if (popup) {
       this.authService.logoutPopup({
-        mainWindowRedirectUri: 'http://localhost:4200',
-        // postLogoutRedirectUri: 'http://localhost:4200'
+        mainWindowRedirectUri: 'http://localhost:4100',
+        // postLogoutRedirectUri: 'http://localhost:4100'
       });
     } else {
       this.authService.logoutRedirect();
